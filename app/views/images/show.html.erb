@@ -11,8 +11,10 @@
   <div class='addComment'>
   	<%= form_for @comment, :url =>{:controller =>"comments", :action =>"create"} do |f| %>
 	  	<%= f.text_area :body, placeholder: "Add your comment here" %>
-	  	<%= f.hidden_field :user_id, :value => current_user.id %>
-	  	<%= f.hidden_field :image_id, :value => params[:id] %> 
+      <% if current_user %>
+  	  	<%= f.hidden_field :user_id, :value => current_user.id %>
+  	  	<%= f.hidden_field :image_id, :value => params[:id] %> 
+      <% end %>
   		<%= f.submit 'Add your comment' %>
   	<% end %>
   </div>
@@ -30,5 +32,6 @@
   	<% end %>
   </div>
 </section>
-Upvotes: <%= @image.votes.count %>
+
+Upvotes: <% if @image.votes == nil %> 0 <% else %> <%= @image.votes.count %> <% end %>
 <%= link_to "Upvote", upvote_path %>

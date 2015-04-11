@@ -35,8 +35,8 @@ ActiveRecord::Schema.define(version: 20150411212127) do
     t.string   "photo"
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
-    t.integer  "votes",       default: [],              array: true
     t.integer  "user_id"
+    t.integer  "votes",       default: [],              array: true
   end
 
   add_index "images", ["user_id"], name: "index_images_on_user_id", using: :btree
