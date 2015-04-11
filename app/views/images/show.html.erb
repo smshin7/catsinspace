@@ -1,4 +1,5 @@
 <section class='show'>
+  <div class='right'>
   <!-- <img src="<%#= @image.photo %>"> -->
   <%= image_tag @image.avatar.url(:medium) %>
   <br>
@@ -8,28 +9,33 @@
   <br>
   Description:
   <br>
-
-  <div class='addComment'>
-  	<%= form_for @comment, :url =>{:controller =>"comments", :action =>"create"} do |f| %>
-	  	<%= f.text_area :body, placeholder: "Add your comment here" %>
-	  	<%= f.hidden_field :user_id, :value => current_user.id %>
-	  	<%= f.hidden_field :image_id, :value => params[:id] %> 
-  		<%= f.submit 'Add your comment' %>
-  	<% end %>
   </div>
-  <hr >
-  <div class='commentSection'>
-    <h1>Comments</h1>
-  	<% @commentsSubmitted.each do |comment| %>
-      <%= comment.user.username %> said:<br />
-  		<%= comment.body %>
-			<% if current_user.id == comment.user_id %>
-			 (<%= link_to 'Edit', edit_comment_path(comment, image_id: params[:id]) %>)
-			<% end %>
-  		<br />
+  <div class='left'>
+    <div class='addComment'>
+    	<%= form_for @comment, :url =>{:controller =>"comments", :action =>"create"} do |f| %>
+  	  	<%= f.text_area :body, placeholder: "Add your comment here" %>
+        <% if current_user %>
+    	  	<%= f.hidden_field :user_id, :value => current_user.id %>
+    	  	<%= f.hidden_field :image_id, :value => params[:id] %> 
+        <% end %>
+    		<%= f.submit 'Add your comment' %>
+    	<% end %>
+    </div>
+    <hr >
+    <div class='commentSection'>
+      <h1>Comments</h1>
+    	<% @commentsSubmitted.each do |comment| %>
+        <%= comment.user.username %> said:<br />
+    		<%= comment.body %>
+  			<% if current_user.id == comment.user_id %>
+  			 (<%= link_to 'Edit', edit_comment_path(comment, image_id: params[:id]) %>)
+  			<% end %>
+    		<br />
 
-  	<% end %>
-  </div>
+    	<% end %>
+    </div>
+    </div>
 </section>
-Upvotes: <%= @image.votes.count %>
+
+Upvotes: <% if @image.votes == nil %> 0 <% else %> <%= @image.votes.count %> <% end %>
 <%= link_to "Upvote", upvote_path %>

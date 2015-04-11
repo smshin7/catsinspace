@@ -14,4 +14,5 @@ Rails.application.routes.draw do
   resources :comments
   resources :users, only: [:index, :new, :create, :show]
   
+  
 end
