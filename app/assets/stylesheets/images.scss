@@ -10,10 +10,11 @@
 }
 div.thumb {
   display: inline-block;
-  width: 20vw;
-  height: 30vh;
-  background-color: blue;
-  float: left
+  img{
+    width: 20vw;
+    height: 30vh;
+    float: left
+  }
 }
 .show {
   margin-top: 12vh;
