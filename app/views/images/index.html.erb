@@ -1,13 +1,15 @@
 <%= form_for Image.new() do |f| %>
+  title
   <%= f.text_field :title %>
+  photo
   <%= f.text_field :photo %>
+  url
   <%= f.text_field :link %>
   <%= f.submit %>
 <% end %>
 
+
 <% @images.each do |i| %>
 <div class='thumb'>
-  <h1> <%= i.title %> </h1>
-  <img src=<%= i.photo %>>
-  <%= i.link %>
+  <%= link_to "#{i.title}", image_path(i.id) %>
 <% end %> 
