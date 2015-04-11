@@ -1,14 +1,3 @@
-
-<input type="button" 
-    id="preloadbutton2" 
-    value="Preload Image" 
-    onclick="preload();this.value='Loading. Please wait...'" />
-
-<div id="after_preload" style="display: none">
-<input type="button" value="Use Preloaded Image"
-onclick="use_preloaded_image()" /><br />
-<img src="blank.jpg" id="saturnplaceholder" width="500" />
-</div>
 <%= form_for Image.new() do |f| %>
   title
   <%= f.text_field :title %>
@@ -19,9 +8,6 @@ onclick="use_preloaded_image()" /><br />
   <%= f.submit %>
 <% end %>
 
-<img src=<%= @images.first.photo %> />
-<img src=<%= @images[1].photo %> />
-<img src=<%= @images[2].photo %> />
 
 <% @images.each do |i| %>
 <div class='thumb'>
