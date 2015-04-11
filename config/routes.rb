@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   resources :images 
  
   # upvote route to action
-  get "images#create_upvote", as: 'upvote'
-  post "images#create_upvote", as: 'upvote'
+  get '/images/:id/upvote' => 'images#create_upvote'
+  post '/images/:id/upvote' => 'images#create_upvote', as: 'upvote'
   
   root to: 'sessions#new'
 
