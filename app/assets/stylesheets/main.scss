@@ -15,3 +15,34 @@ body {
   height: 10vh;
   background-color: peachpuff;
 }
+.postbutton{
+  width: 20%;
+  height: 100%;
+  text-align: center;
+  border-style: none;
+  background-color: transparent;
+  float: left;
+  display: inline-block;
+}
+.postbutton:hover {
+  color: white;
+  background-color: black;
+  opacity: 0.3;
+}
+form.button_to {
+  height: 100%;
+}
+.session{
+  width: 20%;
+  height: 100%;
+  text-align: center;
+  border-style: none;
+  background-color: transparent;
+  float: left;
+  display: inline-block;
+}
+.session:hover {
+  color: white;
+  background-color: black;
+  opacity: 0.3;
+}

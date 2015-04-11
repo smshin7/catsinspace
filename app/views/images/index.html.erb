@@ -1,4 +1,4 @@
-<div class='post'>
+<div class='post hidden'>
 <%= form_for Image.new() do |f| %>
   title
   <%= f.text_field :title %>
@@ -15,6 +15,10 @@
     <%= link_to image_path(i.id) do %>
       <div class='thumb'>
          <%= image_tag i.avatar.url(:medium) %>
+        <div class='txthover' >
+          <%= i.title %>
+          <%= i.votes.length %>
+        </div>
       </div>
     <% end %>
   <% end %>
