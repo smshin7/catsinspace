@@ -8,14 +8,14 @@
 </head>
 <body>
   <div class='navigation'>
-    
-  </div>
-<% if current_user != nil %>
-	This is the person who's logged in: <%= current_user.email %>
-	<%= button_to "Log out", sessions_path, method: :delete %>
+    <% if current_user != nil %>
+  This is the person who's logged in: <%= current_user.email %>
+  <%= button_to "Log out", sessions_path, method: :delete %>
 <% else %>
-	<%= button_to "Sign up", new_user_path, method: :get %>
+  <%= button_to "Sign up", new_user_path, method: :get %>
 <% end %>
+
+  </div>
 
 <%= yield %>
 

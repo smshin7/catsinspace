@@ -1,3 +1,4 @@
+<div class='post hidden'>
 <%= form_for Image.new() do |f| %>
   title
   <%= f.text_field :title %>
@@ -7,14 +8,16 @@
   <%= f.text_field :link %>
   <%= f.submit %>
 <% end %>
+</div>
 
-
-<% @images.each do |i| %>
-  <%= link_to image_path(i.id) do %>
-    <div class='thumb'>
-      "#{i.title}"
-    </div>
+<section class='main'>
+  <% @images.each do |i| %>
+    <%= link_to image_path(i.id) do %>
+      <div class='thumb'>
+        <p> <%= i.title %> </p>
+      </div>
+    <% end %>
   <% end %>
-<% end %>
+</section>
 
 

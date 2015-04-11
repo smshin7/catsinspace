@@ -1,9 +1,6 @@
 // Place all the styles related to the images controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-body {
-  margin: 0;
-}
 .thumb {
   display: inline-block;
 }
@@ -18,8 +15,25 @@ div.thumb {
   background-color: blue;
   float: left
 }
-.show img {
-  width: 50vw;
-  margin: 0 25vw;
+.show {
+  margin-top: 12vh;
+  img {
+    width: 70%;
+    margin: 0 15%;
+  }
+}
+section.main {
+  height: 100%;
+  margin-top: 10vh;
+}
+.right {
+  width: 70%;
+  display: inline-block;
+  float: left;
+}
+.left {
+  width: 30%; 
+  display: inline-block;
 
 }
+
