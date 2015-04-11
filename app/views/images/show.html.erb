@@ -1,5 +1,6 @@
 <section class='show'>
-  <img src="<%= @image.photo %>">
+  <!-- <img src="<%#= @image.photo %>"> -->
+  <%= image_tag @image.avatar.url(:medium) %>
   <br>
   Title:
   <br>
