@@ -23,3 +23,8 @@ onclick="use_preloaded_image()" /><br />
 <img src=<%= @images[1].photo %> />
 <img src=<%= @images[2].photo %> />
 
+<% @images.each do |i| %>
+<div class='thumb'>
+  <%= link_to "#{i.title}", image_path(i.id) %>
+<% end %> 
+

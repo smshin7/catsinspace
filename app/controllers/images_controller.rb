@@ -21,10 +21,16 @@ class ImagesController < ApplicationController
       render '/new'
     end
   end
-
+  
+  def create_upvote
+    @image = Image.find(params[:id])
+    @image['votes'] << current_user.id
+    @image['votes'].save
+  end
+  
   private
 
   def image_params
-    params.require(:image).permit(:title, :description, :link, :date, :photo)
+    params.require(:image).permit(:title, :description, :link, :date, :photo, :user_id)
   end
 end
