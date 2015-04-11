@@ -1,2 +1,13 @@
-<h1>Images#index</h1>
-<p>Find me in app/views/images/index.html.erb</p>
+<%= form_for Image.new() do |f| %>
+  <%= f.text_field :title %>
+  <%= f.text_field :photo %>
+  <%= f.text_field :link %>
+  <%= f.submit %>
+<% end %>
+
+<% @images.each do |i| %>
+<div class='thumb'>
+  <h1> <%= i.title %> </h1>
+  <img src=<%= i.photo %>>
+  <%= i.link %>
+<% end %> 
