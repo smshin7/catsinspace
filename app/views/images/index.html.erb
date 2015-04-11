@@ -11,5 +11,5 @@
 
 <% @images.each do |i| %>
 <div class='thumb'>
-  <img src="<%= i.photo %>">
+  <%= link_to "#{i.title}", image_path(i.id) %>
 <% end %> 
