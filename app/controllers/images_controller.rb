@@ -21,7 +21,12 @@ class ImagesController < ApplicationController
       render '/new'
     end
   end
-
+  
+  def create_upvote
+    @image = Image.find(params[:id])
+    @image.vote.push(current_user.id)
+  end
+  
   private
 
   def image_params
