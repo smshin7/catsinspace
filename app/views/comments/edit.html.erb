@@ -1,0 +1,8 @@
+<h1>Edit my comment</h1>
+<%= form_for @comment do |f| %>
+	<%= f.text_area :body %>
+	<br />
+	<%= f.hidden_field :user_id, :value => current_user.id %>
+	<%= f.hidden_field :image_id, :value => params[:image_id] %>
+	<%= f.submit 'Edit your comment' %>
+<% end %>
