@@ -21,7 +21,22 @@
       <i class="fa fa-times-circle"></i>
     </div>
   </div>
-
+  <div class='post hidden'>
+    <%= form_for Image.new() do |f| %>
+      title
+      <%= f.text_field :title %>
+      photo
+      <%= f.text_field :photo %>
+      url
+      <%= f.text_field :link %>
+      date 
+      <%= f.date_field :date %>
+      description
+      <%= f.text_area :description %>
+      
+      <%= f.submit %>
+    <% end %>
+</div>
 <%= yield %>
 
 </body>
