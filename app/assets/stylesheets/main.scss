@@ -1,0 +1,78 @@
+// Place all the styles related to the votes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+  margin: 0;
+}
+.hidden {
+  display: none;
+}
+
+i.fa.fa-bars.menu {
+  font-size: 30px;
+  position: fixed;
+  z-index: 99;
+  top: 20px;
+  left: 0;
+  background-color: white;
+  padding: 10px 40px;
+  opacity: 0.7;
+}
+.close {
+  text-align: center;
+  display: inline-block;
+  float: left;
+}
+.navigation {
+  position: fixed;
+  top: 0px;
+  visibility: hidden;
+  width: 0vw;
+  height: 10vh;
+  background-color: peachpuff;
+  -webkit-transition: all 2s;
+  transition: all 2s;
+  z-index: 999;
+}
+.opennav {
+  position: fixed;
+  top: 0px;
+  left: 0;
+  visibility: visible;
+  width: 100vw;
+  height: 10vh;
+  background-color: peachpuff;
+}
+.postbutton{
+  width: 20%;
+  height: 100%;
+  text-align: center;
+  border-style: none;
+  background-color: transparent;
+  float: left;
+  display: inline-block;
+}
+.postbutton:hover {
+  color: white;
+  background-color: black;
+  opacity: 0.3;
+}
+form.button_to {
+  height: 100%;
+  width: 20%;
+  float: left;
+}
+.session{
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  border-style: none;
+  background-color: transparent;
+  float: left;
+  display: inline-block;
+}
+.session:hover {
+  color: white;
+  background-color: black;
+  opacity: 0.3;
+}

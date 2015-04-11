@@ -4,20 +4,23 @@
   <title>Catsinspace</title>
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
-  <meta Http-Equiv="Cache-Control" Content="no-cache">
-  <meta Http-Equiv="Pragma" Content="no-cache">
-  <meta Http-Equiv="Expires" Content="0">
-  <meta Http-Equiv="Pragma-directive: no-cache">
-  <meta Http-Equiv="Cache-directive: no-cache">
   <%= csrf_meta_tags %>
 </head>
 <body>
-<% if current_user != nil %>
-	This is the person who's logged in: <%= current_user.email %>
-	<%= button_to "Log out", sessions_path, method: :delete %>
-<% else %>
-	<%= button_to "Sign up", new_user_path, method: :get %>
-<% end %>
+  <i class="fa fa-bars menu"></i>
+  <div class='navigation'>
+    <button class='postbutton hidden'> post </button>
+
+    <% if current_user != nil %>
+    
+      <%= button_to "Log out", sessions_path, method: :delete %>
+      <% else %>
+      <%= button_to "Sign up/Login", new_user_path, :class => 'session', method: :get %>
+    <% end %>
+    <div class='close'>
+      <i class="fa fa-times-circle"></i>
+    </div>
+  </div>
 
 <%= yield %>
 

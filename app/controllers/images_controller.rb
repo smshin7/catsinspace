@@ -2,6 +2,8 @@ class ImagesController < ApplicationController
 
   def index
     @images = Image.all
+    @comment=Comment.new
+    @commentsSubmitted = Comment.where(image_id: params[:id])
   end
   
   def show
