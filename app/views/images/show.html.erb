@@ -30,3 +30,5 @@
   	<% end %>
   </div>
 </section>
+Upvotes: <%= @image.votes.count %>
+<%= link_to "Upvote", upvote_path %>
