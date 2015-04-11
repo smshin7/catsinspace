@@ -26,8 +26,14 @@ class ImagesController < ApplicationController
   
   def create_upvote
     @image = Image.find(params[:id])
-    @image['votes'] << current_user.id
-    @image['votes'].save
+
+    if @image['votes'].include?(current_user.id)
+      raise
+    else
+      @image['votes'] << current_user.id
+      @image.save
+      redirect_to images_path(@image.id)
+    end
   end
   
   private
