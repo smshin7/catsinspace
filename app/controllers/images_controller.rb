@@ -16,7 +16,8 @@ class ImagesController < ApplicationController
 
   def create
     @image = Image.new(image_params)
-
+    # raise params.inspect
+    @image.avatar=URI.parse(params[:image][:photo])
     if @image.save
       redirect_to images_path
     else
