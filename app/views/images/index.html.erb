@@ -1,16 +1,18 @@
 <%= form_for Image.new() do |f| %>
-  <%= f.text_field :title, placeholder: 'Post title' %>
-  <%= f.text_field :photo, placeholder: 'Photo link' %>
-  <%= f.text_field :link, placeholder: 'Link to NASA page' %>
-  <%= f.hidden_field :user_id, value: current_user.id %> 
+
+
+  title
+  <%= f.text_field :title %>
+  photo
+  <%= f.text_field :photo %>
+  url
+  <%= f.text_field :link %>
   <%= f.submit %>
 <% end %>
 
+
 <% @images.each do |i| %>
 <div class='thumb'>
-  <h1> <%= i.title %> </h1>
-  <img src=<%= i.photo %> ><br />
-  Posted by: <%= i.user.username %>
-</div>
+  <%= link_to "#{i.title}", image_path(i.id) %>
 <% end %> 
 
