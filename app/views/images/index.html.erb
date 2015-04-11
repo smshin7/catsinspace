@@ -10,8 +10,11 @@
 
 
 <% @images.each do |i| %>
-<div class='thumb'>
-  <%= link_to "#{i.title}", image_path(i.id) %>
-</div>
-<% end %> 
+  <%= link_to image_path(i.id) do %>
+    <div class='thumb'>
+      "#{i.title}"
+    </div>
+  <% end %>
+<% end %>
+
 
