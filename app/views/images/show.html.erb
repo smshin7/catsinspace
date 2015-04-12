@@ -43,9 +43,11 @@
         <div class='comment'>
           <strong><%= comment.user.username %> said:</strong><br />
       		<%= comment.body %>
-    			<% if current_user.id == comment.user_id %>
-    			 (<%= link_to 'Edit', edit_comment_path(comment, image_id: params[:id]) %>)
-    			<% end %>
+          <% if current_user %>
+      			<% if current_user.id == comment.user_id %>
+      			 (<%= link_to 'Edit', edit_comment_path(comment, image_id: params[:id]) %>)
+      			<% end %>
+          <% end %>
       		<br />
         </div>
       	<% end %>
