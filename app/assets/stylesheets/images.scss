@@ -4,6 +4,12 @@
 .thumb {
   display: inline-block;
 }
+.likes {
+  a {
+    text-decoration: none;
+    color: red;
+  }
+}
 .forms {
   height: 100vh;
   width: 100vw;
