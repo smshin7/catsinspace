@@ -4,7 +4,7 @@ class ImagesController < ApplicationController
     @images = Image.all
     @comment=Comment.new
     @commentsSubmitted = Comment.where(image_id: params[:id])
-    @topUsers= User.order("voteCount DESC").limit(5)
+    @topUsers= User.order("vote_count DESC").limit(5)
   end
   
   def show
@@ -22,6 +22,7 @@ class ImagesController < ApplicationController
     # raise params.inspect
     @image.avatar=URI.parse(params[:image][:photo])
     if @image.save
+      flash[:image_success] = "Upload Successful"
       redirect_to images_path
     else
       render '/new'
@@ -32,13 +33,17 @@ class ImagesController < ApplicationController
     @image = Image.find(params[:id])
     user=@image.user
     if @image['votes'].include?(current_user.id)
-      user.voteCount-=1
+
+      @image['votes'].delete(current_user.id)
+      @image.save
+      user.vote_count-=1
       user.save
-      raise
+      redirect_to images_path
     else
       @image['votes'] << current_user.id
-      user.voteCount+=1
       @image.save
+      user.vote_count+=1
+      user.save
       
       redirect_to images_path(@image.id)
     end

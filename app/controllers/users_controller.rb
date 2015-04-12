@@ -6,7 +6,8 @@ class UsersController < ApplicationController
   def create
     user = User.new(params.require(:user).permit(:email, :username, :password)) 
     if user.save
-      redirect_to new_session_path
+      flash[:success] = "Welcome to our app" 
+      redirect_to images_path
     end
   end
 

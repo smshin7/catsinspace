@@ -1,8 +1,10 @@
+<%= flash[:success] %> 
+<%= flash[:image_success] %>
 
 <div class='leaderboard'>
-  <h1>Leaderboard</h1>
+  <h3>Top 5 Most upvoted users</h3>
   <% @topUsers.each do |topUser|%>
-    <%= topUser.username %> | <%= topUser.voteCount %>
+    <%= topUser.username %> | <%= topUser.vote_count %> votes<br />
   <% end %>
 </div>
 
