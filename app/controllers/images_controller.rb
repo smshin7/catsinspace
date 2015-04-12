@@ -4,6 +4,7 @@ class ImagesController < ApplicationController
     @images = Image.all
     @comment=Comment.new
     @commentsSubmitted = Comment.where(image_id: params[:id])
+    # @topUsers= User.where(???).limit(5);
   end
   
   def show
