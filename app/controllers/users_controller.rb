@@ -10,7 +10,8 @@ class UsersController < ApplicationController
       flash[:success] = "Welcome to our app" 
       redirect_to root_path
     else
-      render '/images'
+      flash[:error] = "Username and/or Email already registered"
+      redirect_to root_path
     end
   end
 
