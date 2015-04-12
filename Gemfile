@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-gem "paperclip", "~> 4.2"
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 # Use postgresql as the database for Active Record
@@ -33,6 +32,16 @@ gem "font-awesome-rails"
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+
+gem 'pry-rails'
+
+gem 'guard-livereload'
+
+gem 'paperclip', '~> 4.2'
+
+gem 'figaro'
+
+gem 'aws-sdk', '<2.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
