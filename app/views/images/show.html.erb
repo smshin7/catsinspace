@@ -2,15 +2,15 @@
   <div class='right'>
   <!-- <img src="<%#= @image.photo %>"> -->
   <%= image_tag @image.avatar.url(:medium) %>
-  <br>
-  Title:
-  <br>
-  Date: 
-  <br>
-  Description:
-  <br>
   </div>
   <div class='left'>
+  Title: <%= @image.title %>
+  <br>
+  Date:  <%= @image.date.strftime("%m/%d/%Y") %>
+  <br>
+  Description: <%= @image.description %>
+  <br>
+  <br>
     <div class='addComment'>
     	<%= form_for @comment, :url =>{:controller =>"comments", :action =>"create"} do |f| %>
   	  	<%= f.text_area :body, placeholder: "Add your comment here" %>
