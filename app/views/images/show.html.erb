@@ -14,7 +14,7 @@
     <br>
     <h3><%= @image.votes.count %>
       <span class='likes'>
-      <% if @image.votes.include? current_user.id %>
+      <% if current_user && @image.votes.include? current_user.id %>
   <%= link_to upvote_path do %><i class="fa fa-heart"></i><% end %>
       <% else %>
       <%= link_to upvote_path do %><i class="fa fa-heart-o"></i><% end %>
