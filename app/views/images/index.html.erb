@@ -1,7 +1,9 @@
 
 <div class='leaderboard'>
   <h1>Leaderboard</h1>
-  
+  <% @topUsers.each do |topUser|%>
+    <%= topUser.username %> | <%= topUser.voteCount %>
+  <% end %>
 </div>
 
 <section class='main'>

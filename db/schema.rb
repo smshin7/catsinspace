@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 20150412014229) do
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
     t.string   "password_digest"
-    t.integer  "voteCount",       default: 0
+    t.integer  "vote_count",      default: 0
   end
 
   add_foreign_key "comments", "images"
