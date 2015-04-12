@@ -80,12 +80,16 @@ section.main {
   height: 100%;
 }
 .right {
-  width: 70%;
+  width: 60%;
   display: inline-block;
   float: left;
 }
 .left {
-  width: 30%; 
+  width: 40%; 
   display: inline-block;
+}
+.content {
+  width: 80%;
+  margin: 0 20% 0 0;
 }
 

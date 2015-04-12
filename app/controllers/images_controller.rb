@@ -34,11 +34,11 @@ class ImagesController < ApplicationController
     if @image['votes'].include?(current_user.id)
       @image['votes'].delete(current_user.id)
       @image.save
-      redirect_to images_path
+      redirect_to image_path(@image.id)
     else
       @image['votes'] << current_user.id
       @image.save
-      redirect_to images_path(@image.id)
+      redirect_to image_path(@image.id)
     end
   end
   
