@@ -1,7 +1,7 @@
 class ImagesController < ApplicationController
 
   def index
-    @images = Image.all
+    @images = Image.order(votes: :desc)
     @comment=Comment.new
     @commentsSubmitted = Comment.where(image_id: params[:id])
     @topUsers= User.order("vote_count DESC").limit(5)
