@@ -10,6 +10,8 @@
 <% end %>
 </div>
 
+<%= flash[:success] %> 
+
 <section class='main'>
   <% @images.each do |i| %>
     <%= link_to image_path(i.id) do %>
