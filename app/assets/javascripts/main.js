@@ -40,5 +40,12 @@ $(function(){
     $('.leaderboardbutton').css('visibility','visible');
     $('.leaderboard').css('right','-500px');
    })
-
+   $('.instructionbutton').click(function(){
+    $('.instruction').removeClass('hidden')
+    $('.navigation').addClass('hidden')
+  })
+   $('.closeinstruction').click(function(){
+    $('.instruction').addClass('hidden');
+    $('.navigation').removeClass('hidden')
+   })
 })

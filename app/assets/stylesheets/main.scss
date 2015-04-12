@@ -149,3 +149,21 @@ section.main {
   color: white;
   z-index: 99999;
 }
+.instruction {
+  width: 100vw;
+  background-color: black;
+  opacity: 0.8;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 999999;
+   img { 
+   width: 80%;
+   margin: 5% 10%;
+   }
+   i {
+    font-size: 50px;
+    color: white;
+    margin-bottom: 5%;
+   }
+}

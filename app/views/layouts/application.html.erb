@@ -24,7 +24,9 @@
         <button class='loginbutton'> Login </button>
       </div>
     <% end %>
-     <%= button_to "Instructions", new_session_path, :class => 'session', method: :get %>
+     <div class='session'>
+        <button class='instructionbutton'> Instruction </button>
+      </div>
     <div class='close'>
       <i class="fa fa-times-circle"></i>
     </div>
@@ -98,6 +100,12 @@
 <br>
 <div class='leaderboardbutton'>
   <h3> LEADERBOARD </h3>
+</div>
+<div class='instruction hidden'>
+  <%= image_tag("instructionsv2.png") %>
+  <div class='closeinstruction' style='text-align:center;'>
+    <i class="fa fa-times-circle"></i>
+  </div>
 </div>
 <%= yield %>
 
