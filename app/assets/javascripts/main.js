@@ -38,7 +38,7 @@ $(function(){
   })
    $('.closeleader').click(function(){
     $('.leaderboardbutton').css('visibility','visible');
-    $('.leaderboard').css('right','-2000px');
+    $('.leaderboard').css('right','-500px');
    })
 
 })
