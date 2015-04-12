@@ -17,9 +17,11 @@
       </div>
       <%= button_to "Log out", sessions_path, :class => 'session', method: :delete %>
       <% else %>
-      <%= button_to "Sign up", new_user_path, :class => 'session', method: :get %>
       <div class='session'>
-      <button class='loginbutton'> Login </button>
+        <button class='signupbutton'> sign up</button>
+      </div>
+      <div class='session'>
+        <button class='loginbutton'> Login </button>
       </div>
     <% end %>
      <%= button_to "Instructions", new_session_path, :class => 'session', method: :get %>
@@ -58,12 +60,31 @@
     <h2> Password </h2>
     <%= f.password_field :password %><br />
     <br>
-    <%=f.submit 'Log yourself in' %> <!-- This will post back to the users controller by default because it's a user. We need to override this behavior -->
+    <%=f.submit 'Log yourself in', :class => 'submit'%> <!-- This will post back to the users controller by default because it's a user. We need to override this behavior -->
     <% end %>
     <br>
     <button class='cancellogin' style='width:20%'> CANCEL </button>
 </div>
 
+<div class='forms signup hidden'>
+  <%= form_for User.new() do |f|%>
+    <h2> Username </h2>
+    <%= f.text_field :username %>
+    <h2> E-mail </h2>
+     <%= f.text_field :email %>
+    <h2> Password </h2>
+     <%= f.password_field :password %>
+    <h2> Password confirmation </h2>
+    <%= f.password_field :password_confirmation %>
+    <br>
+    <br>
+    <%=f.submit "Sign In", :class=>'submit' %>
+    <br>
+    <br>
+    <button class='cancelsignup' style='width:20%'> CANCEL </button>
+
+<% end %>
+</div>
 <%= yield %>
 
 </body>
