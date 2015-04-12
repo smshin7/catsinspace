@@ -70,7 +70,7 @@ div.thumb {
   }
 }
 .show {
-  margin-top: 6vh;
+  margin-top: 8vh;
   img {
     width: 70%;
     margin: 0 15%;
@@ -83,10 +83,16 @@ section.main {
   width: 60%;
   display: inline-block;
   float: left;
+  height: 80vh;
 }
 .left {
   width: 40%; 
   display: inline-block;
+  height: 70vh;
+  overflow: auto;
+  input[type="submit"] {
+  border-style: none;
+  }
 }
 .content {
   width: 80%;

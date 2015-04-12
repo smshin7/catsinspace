@@ -36,13 +36,14 @@
       <div class='commentSection'>
         <h1>Comments</h1>
       	<% @commentsSubmitted.each do |comment| %>
-          <%= comment.user.username %> said:<br />
+        <div class='comment'>
+          <strong><%= comment.user.username %> said:</strong><br />
       		<%= comment.body %>
     			<% if current_user.id == comment.user_id %>
     			 (<%= link_to 'Edit', edit_comment_path(comment, image_id: params[:id]) %>)
     			<% end %>
       		<br />
-
+        </div>
       	<% end %>
       </div>
     </div>
