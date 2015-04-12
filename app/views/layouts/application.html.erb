@@ -10,19 +10,25 @@
 <body>
   <i class="fa fa-bars menu"></i>
   <div class='navigation'>
-    <button class='postbutton hidden'> post </button>
-
+    <%= button_to "HOME", root_path, :class => 'session', method: :get %>
     <% if current_user != nil %>
-    
-      <%= button_to "Log out", sessions_path, method: :delete %>
+     <div class='session'>
+      <button class='postbutton'> Post </button>
+      </div>
+      <%= button_to "Log out", sessions_path, :class => 'session', method: :delete %>
       <% else %>
-      <%= button_to "Sign up/Login", new_user_path, :class => 'session', method: :get %>
+      <%= button_to "Sign up", new_user_path, :class => 'session', method: :get %>
+      <div class='session'>
+      <button class='loginbutton'> Login </button>
+      </div>
     <% end %>
+     <%= button_to "Instructions", new_session_path, :class => 'session', method: :get %>
     <div class='close'>
       <i class="fa fa-times-circle"></i>
     </div>
   </div>
-  <div class='post hidden'>
+  
+  <div class='forms post hidden'>
     <%= form_for Image.new() do |f| %>
       <h2> title </h2>
       <%= f.text_field :title %>
@@ -38,10 +44,26 @@
       <%= f.hidden_field :user_id, :value => current_user.id %>
       <% end %>
       <br>
+      <br>
 
-      <%= f.submit %>
+      <%= f.submit "POST", :class => 'submit' %>
     <% end %>
+    <br>
+    <button class='cancel' style='width:20%'> CANCEL </button>
 </div>
+<div class='forms login hidden'>
+<%= form_for User.new, :url => { :controller => "sessions", :action => "create" } do |f| %> <!-- See the comment under the f.submit line for details. the url tells it to go to the sessions path, create method instead-->
+    <h2> E-mail </h2>
+     <%= f.text_field :email %><br />
+    <h2> Password </h2>
+    <%= f.password_field :password %><br />
+    <br>
+    <%=f.submit 'Log yourself in' %> <!-- This will post back to the users controller by default because it's a user. We need to override this behavior -->
+    <% end %>
+    <br>
+    <button class='cancellogin' style='width:20%'> CANCEL </button>
+</div>
+
 <%= yield %>
 
 </body>
