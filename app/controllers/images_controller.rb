@@ -4,6 +4,7 @@ class ImagesController < ApplicationController
     @images = Image.all
     @comment=Comment.new
     @commentsSubmitted = Comment.where(image_id: params[:id])
+    @topUsers= User.order("vote_count DESC").limit(5)
   end
   
   def show
@@ -30,14 +31,20 @@ class ImagesController < ApplicationController
   
   def create_upvote
     @image = Image.find(params[:id])
-
+    user=@image.user
     if @image['votes'].include?(current_user.id)
+
       @image['votes'].delete(current_user.id)
       @image.save
+      user.vote_count-=1
+      user.save
       redirect_to images_path
     else
       @image['votes'] << current_user.id
       @image.save
+      user.vote_count+=1
+      user.save
+      
       redirect_to images_path(@image.id)
     end
   end
