@@ -152,7 +152,7 @@ section.main {
 .instruction {
   width: 100vw;
   background-color: black;
-  opacity: 0.8;
+  opacity: 0.98;
   position: absolute;
   top: 0;
   left: 0;
@@ -166,4 +166,10 @@ section.main {
     color: white;
     margin-bottom: 5%;
    }
+}
+div.session:hover {
+  opacity: 0.5;
+  button {
+    color: white;
+  }
 }
