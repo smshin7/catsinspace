@@ -21,6 +21,7 @@ class ImagesController < ApplicationController
     # raise params.inspect
     @image.avatar=URI.parse(params[:image][:photo])
     if @image.save
+      flash[:image_success] = "Upload Successful"
       redirect_to images_path
     else
       render '/new'
