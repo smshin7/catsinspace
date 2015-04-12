@@ -15,6 +15,9 @@
          <%= image_tag i.avatar.url(:medium) %>
         <div class='txthover' >
           <%= i.title %>
+          <br>
+          <br>
+          <strong> <%= i.votes.count %> </strong> <i class="fa fa-heart"></i>
         </div>
       </div>
     <% end %>

@@ -4,38 +4,50 @@
   <%= image_tag @image.avatar.url(:medium) %>
   </div>
   <div class='left'>
-  Title: <%= @image.title %>
-  <br>
-  Date:  <%= @image.date.strftime("%m/%d/%Y") %>
-  <br>
-  Description: <%= @image.description %>
-  <br>
-  <br>
-    <div class='addComment'>
-    	<%= form_for @comment, :url =>{:controller =>"comments", :action =>"create"} do |f| %>
-  	  	<%= f.text_area :body, placeholder: "Add your comment here" %>
-        <% if current_user %>
-    	  	<%= f.hidden_field :user_id, :value => current_user.id %>
-    	  	<%= f.hidden_field :image_id, :value => params[:id] %> 
-        <% end %>
-    		<%= f.submit 'Add your comment' %>
-    	<% end %>
-    </div>
-    <hr >
-    <div class='commentSection'>
-      <h1>Comments</h1>
-    	<% @commentsSubmitted.each do |comment| %>
-        <%= comment.user.username %> said:<br />
-    		<%= comment.body %>
-  			<% if current_user.id == comment.user_id %>
-  			 (<%= link_to 'Edit', edit_comment_path(comment, image_id: params[:id]) %>)
-  			<% end %>
-    		<br />
-
-    	<% end %>
+  <div class='content'>
+    <h3>Title: <%= @image.title %> </h3>
+    <h3>Posted By: <%=@image.user.username %></h3>
+    <h3>Date: <%= @image.date.strftime("%m/%d/%Y") %></h3>
+    <h3> Worldview URL: <a href=<%=@image.link%> target="_blank"> Click Here! </a> </h3>
+    <br>
+    <h3>Description: <%= @image.description %></h3>
+    <br>
+    <h3><%= @image.votes.count %>
+      <span class='likes'>
+      <% if @image.votes.include? current_user.id %>
+  <%= link_to upvote_path do %><i class="fa fa-heart"></i><% end %>
+      <% else %>
+      <%= link_to upvote_path do %><i class="fa fa-heart-o"></i><% end %>
+      <% end %>
+      </span>
+    </h3>
+    <br>
+      <div class='addComment'>
+      	<%= form_for @comment, :url =>{:controller =>"comments", :action =>"create"} do |f| %>
+    	  	<%= f.text_area :body, placeholder: "Add your comment here" %>
+          <% if current_user %>
+      	  	<%= f.hidden_field :user_id, :value => current_user.id %>
+      	  	<%= f.hidden_field :image_id, :value => params[:id] %> 
+          <% end %>
+          <br>
+      		<%= f.submit 'Add your comment' %>
+      	<% end %>
+      </div>
+      <hr >
+      <div class='commentSection'>
+        <h1>Comments</h1>
+      	<% @commentsSubmitted.each do |comment| %>
+        <div class='comment'>
+          <strong><%= comment.user.username %> said:</strong><br />
+      		<%= comment.body %>
+    			<% if current_user.id == comment.user_id %>
+    			 (<%= link_to 'Edit', edit_comment_path(comment, image_id: params[:id]) %>)
+    			<% end %>
+      		<br />
+        </div>
+      	<% end %>
+      </div>
     </div>
     </div>
 </section>
 
-Upvotes: <% if @image.votes == nil %> 0 <% else %> <%= @image.votes.count %> <% end %>
-<%= link_to "Upvote", upvote_path %>

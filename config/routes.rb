@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get '/images/:id/upvote' => 'images#create_upvote'
   post '/images/:id/upvote' => 'images#create_upvote', as: 'upvote'
   
-  root to: 'sessions#new'
+  root to: 'images#index'
 
   delete '/sessions' => 'sessions#destroy', as: 'logout'
   resources :sessions, only: [:new, :create, :destroy]
