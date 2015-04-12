@@ -118,6 +118,7 @@ div.session {
   right: 0;
   background-color: white;
   opacity: 0.8;
+  z-index: 9999;
   padding: 10px 20px;
 }
 .leaderboard {
@@ -128,7 +129,7 @@ div.session {
   padding: 10px 20px;
   background-color: white;
   opacity: 0.8;
-  z-index: 999;
+  z-index: 9999;
   text-transform: uppercase; 
   -webkit-transition: all 2s;
   h3 {
