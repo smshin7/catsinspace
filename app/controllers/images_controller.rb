@@ -21,6 +21,7 @@ class ImagesController < ApplicationController
     # raise params.inspect
     @image.avatar=URI.parse(params[:image][:photo])
     if @image.save
+      flash[:image_success] = "Upload Successful"
       redirect_to images_path
     else
       render '/new'
@@ -31,7 +32,9 @@ class ImagesController < ApplicationController
     @image = Image.find(params[:id])
 
     if @image['votes'].include?(current_user.id)
-      raise
+      @image['votes'].delete(current_user.id)
+      @image.save
+      redirect_to images_path
     else
       @image['votes'] << current_user.id
       @image.save
