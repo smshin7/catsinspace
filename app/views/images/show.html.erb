@@ -4,10 +4,11 @@
   <%= image_tag @image.avatar.url(:medium) %>
   </div>
   <div class='left'>
-  <div class='content'
+  <div class='content'>
     <h3>Title: <%= @image.title %> </h3>
-    <br>
-    <h3>Date: <%= @image.date.strftime("%m/%d/%Y") %> </h3>
+    <h3>Posted By: <%=@image.user.username %></h3>
+    <h3>Date: <%= @image.date.strftime("%m/%d/%Y") %></h3>
+    <h3> Worldview URL: <a href=<%=@image.link%> target="_blank"> Click Here! </a> </h3>
     <br>
     <h3>Description: <%= @image.description %></h3>
     <br>

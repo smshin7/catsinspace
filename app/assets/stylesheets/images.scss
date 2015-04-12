@@ -97,5 +97,12 @@ section.main {
 .content {
   width: 80%;
   margin: 0 20% 0 0;
+  a {
+    text-decoration: none;
+    color: dodgerblue;
+  }
+  span.likes {
+    color: red;
+  }
 }
 
