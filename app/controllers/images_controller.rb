@@ -25,7 +25,8 @@ class ImagesController < ApplicationController
       flash[:image_success] = "Upload Successful"
       redirect_to images_path
     else
-      render '/new'
+      flash[:image_error] = "All fields must be complete"
+      redirect_to images_path
     end
   end
   
