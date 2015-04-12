@@ -32,5 +32,13 @@ $(function(){
     $('.navigation').toggleClass('opennav');
     $('.menu').css('visibility','visible');
   })
+   $('.leaderboardbutton').click(function(){
+    $('.leaderboardbutton').css('visibility','hidden');
+    $('.leaderboard').css('right','0px');
+  })
+   $('.closeleader').click(function(){
+    $('.leaderboardbutton').css('visibility','visible');
+    $('.leaderboard').css('right','-2000px');
+   })
 
 })

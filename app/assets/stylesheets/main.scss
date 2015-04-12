@@ -111,3 +111,31 @@ div.session {
   background-color: peachpuff;
   padding: 10px 20px;
 }
+.leaderboardbutton {
+  position: fixed;
+  font-size: 20px;
+  top: 20px;
+  right: 0;
+  background-color: white;
+  opacity: 0.8;
+  padding: 10px 20px;
+}
+.leaderboard {
+  position: fixed;
+  top: 30px;
+  right: -2000px;
+  text-align: left;
+  padding: 10px 20px;
+  background-color: white;
+  opacity: 0.8;
+  z-index: 999;
+  text-transform: uppercase; 
+  -webkit-transition: all 2s;
+  h3 {
+    margin-bottom: 5px;
+  }
+}
+section.main {
+  position: absolute;
+  top: 0;
+}
