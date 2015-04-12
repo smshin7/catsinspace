@@ -5,6 +5,7 @@
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
+  <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 </head>
 <body>
   <i class="fa fa-bars menu"></i>
@@ -21,7 +22,26 @@
       <i class="fa fa-times-circle"></i>
     </div>
   </div>
+  <div class='post hidden'>
+    <%= form_for Image.new() do |f| %>
+      <h2> title </h2>
+      <%= f.text_field :title %>
+      <h2> photo </h2>
+      <%= f.text_field :photo %>
+      <h2> url </h2>
+      <%= f.text_field :link %>
+      <h2> date </h2>
+      <%= f.date_field :date %>
+      <h2> description </h2>
+      <%= f.text_area :description %>
+      <% if current_user %>
+      <%= f.hidden_field :user_id, :value => current_user.id %>
+      <% end %>
+      <br>
 
+      <%= f.submit %>
+    <% end %>
+</div>
 <%= yield %>
 
 </body>

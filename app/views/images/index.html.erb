@@ -1,15 +1,3 @@
-<div class='post hidden'>
-<%= form_for Image.new() do |f| %>
-  title
-  <%= f.text_field :title %>
-  photo
-  <%= f.text_field :photo %>
-  url
-  <%= f.text_field :link %>
-  <%= f.submit %>
-<% end %>
-</div>
-
 <%= flash[:success] %> 
 <%= flash[:image_success] %>
 
@@ -20,7 +8,6 @@
          <%= image_tag i.avatar.url(:medium) %>
         <div class='txthover' >
           <%= i.title %>
-          <%= i.votes.length %>
         </div>
       </div>
     <% end %>
