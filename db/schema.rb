@@ -35,8 +35,8 @@ ActiveRecord::Schema.define(version: 20150412014229) do
     t.string   "photo"
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
-    t.integer  "user_id"
     t.integer  "votes",               default: [],              array: true
+    t.integer  "user_id"
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
