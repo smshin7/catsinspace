@@ -1,6 +1,10 @@
-<%= flash[:success] %> 
-<%= flash[:image_success] %>
-<%= flash[:error] %>
+<% if flash[:success] || flash[:image_success] || flash[:error] %>
+  <div class='flash'>
+    <%= flash[:success] %> 
+    <%= flash[:image_success] %>
+    <%= flash[:error] %>
+  </div>
+<% end %>
 
 <section class='main'>
   <% @images.each do |i| %>
